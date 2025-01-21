@@ -80,6 +80,12 @@ RequiredBy=network.target
 
 If you installed this application in a place other than `/opt/wakentip`, make sure to modify the `WorkingDirectory` parameter to reflect the correct location.
 
+You can then install the service and have it start up on system boot by running the following command:
+
+```
+sudo systemctl enable wakentip.service
+```
+
 You can then start the service using:
 
 ```
@@ -90,10 +96,4 @@ You can make sure it's running by executing:
 
 ```
 systemctl status wakentip.service
-```
-
-You can also have the service run on boot by executing:
-
-```
-sudo systemctl enable wakentip.service
 ```
