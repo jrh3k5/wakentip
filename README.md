@@ -24,6 +24,12 @@ Either download the source of this repository and unzip it to a location or clon
 git clone https://github.com/jrh3k5/makentip
 ```
 
+After the code has been installed, run this command to install the Node dependencies:
+
+```
+sudo npm install
+```
+
 ### Configuration
 
 Within the location to which you've installed the source code, copy the `.env.sample` file:
