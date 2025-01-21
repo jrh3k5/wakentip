@@ -69,7 +69,7 @@ After=network.target
 
 [Service]
 WorkingDirectory=/opt/wakentip
-ExecStart=node index.js
+ExecStart=node --env-file=.env index.js
 Type=notify
 Restart=always
 
@@ -89,7 +89,7 @@ sudo systemctl enable wakentip.service
 You can then start the service using:
 
 ```
-sudo systemctl start wakentip.service
+sudo systemctl start wakentip.service --no-block
 ```
 
 You can make sure it's running by executing:
