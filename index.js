@@ -2,21 +2,24 @@ import { NeynarAPIClient, Configuration } from "@neynar/nodejs-sdk";
 import { default as axios } from "axios";
 import { default as cron } from 'node-cron';
 
-const cronSchedule = process.env.CRON_SCHEDULE;
-if (!cronSchedule) {
-    console.error("Missing CRON_SCHEDULE")
+if (process.env.RUN_IMMEDIATELY === "true") {
+    await runTip();
+} else {
+    const cronSchedule = process.env.CRON_SCHEDULE;
+    if (!cronSchedule) {
+        console.error("Missing CRON_SCHEDULE")
+        
+        process.exit(1);
+    }
     
-    process.exit(1);
+    console.log(`Running wakentip according to cron schedule '${cronSchedule}'`);
+    
+    cron.schedule(cronSchedule, () => {
+        runTip().catch(err => {
+            console.error(err)
+        });
+    })
 }
-
-console.log(`Running wakentip according to cron schedule '${cronSchedule}'`);
-
-cron.schedule(cronSchedule, () => {
-    runTip().catch(err => {
-        console.error(err)
-    });
-})
-
 
 async function runTip() {
     const dryRun = process.env.DRY_RUN === "true";
@@ -108,7 +111,7 @@ async function runTip() {
             signerUuid: neynarSignerUUID,
             text: postText,
             parent: recipientCastHash,
-            idem: nonce,
+            idem: `${nonce}`,
         })
     }
 }
