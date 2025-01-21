@@ -1,0 +1,26 @@
+{
+  "name": "wakentip",
+  "version": "1.0.0",
+  "description": "A utility to wake and tip $DEGEN on Farcaster",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/jrh3k5/wakentip"
+  },
+  "keywords": [
+    "farcaster",
+    "degen",
+    "tip"
+  ],
+  "author": "Joshua Hyde",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@neynar/nodejs-sdk": "^2.8.1",
+    "axios": "^1.7.9",
+    "node-cron": "^3.0.3"
+  }
+}
