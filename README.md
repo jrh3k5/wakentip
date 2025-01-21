@@ -70,7 +70,7 @@ After=network.target
 [Service]
 WorkingDirectory=/opt/wakentip
 ExecStart=node --env-file=.env index.js
-Type=notify
+Type=simple
 Restart=always
 
 [Install]
