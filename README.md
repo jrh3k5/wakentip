@@ -2,6 +2,8 @@
 
 This is a utility intended to be scheduled and executed by a scheduling tool (such as crontab) to tip your full allocation of $DEGEN tips to a particular user.
 
+**Note**: This project has been archived in wake of the decision for $DEGEN to move away from a shared tipping pool.
+
 ## Prerequisites
 
 You must:
